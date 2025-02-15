@@ -3,11 +3,13 @@ package com.aston;
 import com.aston.entities.Human;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class mainApp {
     public static void main(String[] args) {
-        ArrayList<Human> Arrhumans = new ArrayList<>();
+
+        List<Human> humans = new ArrayList<>();
 
         Scanner scanner = new Scanner(System.in);
 
@@ -20,20 +22,14 @@ public class mainApp {
         System.out.println("Введите пол");
         String gender = scanner.nextLine();
 
-        Human Newhuman = new Human(lastname, age, gender);
-        Arrhumans.add(Newhuman);
+        Human newHuman = new Human(lastname, age, gender);
+        newHuman.saveToArray(humans);
 
+        // Вывод всех добавленных людей
         System.out.println("\nВсе добавленные люди:");
-        for (Human human : Arrhumans) {
+        for (Human human : humans) {
             System.out.println(human);
         }
-
         scanner.close();
-
-
-
-
-
-
-}
+    }
 }
